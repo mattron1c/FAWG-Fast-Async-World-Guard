@@ -1,2 +1,2 @@
-FAILED 1.21.8-R0.1-SNAPSHOT
-FAILED 26.3.build.243-stable
+JAR 1.21.8-R0.1-SNAPSHOT = /home/runner/.m2/repository/io/papermc/paper/paper-api/1.21.8-R0.1-SNAPSHOT/paper-api-1.21.8-R0.1-SNAPSHOT.jar
+JAR 26.3.build.243-stable = /home/runner/.m2/repository/io/papermc/paper/paper-api/26.3.build.243-stable/paper-api-26.3.build.243-stable.jar
