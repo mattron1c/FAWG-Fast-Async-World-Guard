@@ -61,7 +61,7 @@ jobs:
           echo "Using paper-api $V"
           echo "v=$V" >> "$GITHUB_OUTPUT"
       - name: Compile
-        run: ./gradlew compileJava -PpaperVersion=${{ steps.ver.outputs.v }} --stacktrace
+        run: ./gradlew compileJava -PpaperVersion=${{ steps.ver.outputs.v }} -PjavaRelease=${{ matrix.java }} --stacktrace
 
   smoke:
     name: Live server · ${{ matrix.mc }} · ${{ matrix.mode }}

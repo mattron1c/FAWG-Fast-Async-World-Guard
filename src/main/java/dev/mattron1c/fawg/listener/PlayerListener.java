@@ -16,7 +16,7 @@ import dev.mattron1c.fawg.flags.Flags;
 import dev.mattron1c.fawg.protect.Protection;
 import dev.mattron1c.fawg.session.PlayerSession;
 import io.papermc.paper.event.player.AsyncChatEvent;
-import net.kyori.adventure.chat.ChatRenderer;
+import io.papermc.paper.chat.ChatRenderer;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.sound.Sound;
 import net.kyori.adventure.text.Component;
