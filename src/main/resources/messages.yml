@@ -1,0 +1,470 @@
+# ─────────────────────────────────────────────────────────────────────────────────────────────
+#  FastAsyncWorldGuard · messages.yml
+#  MiniMessage format (https://docs.advntr.dev/minimessage/format.html)
+#  Extra tags:  <prefix>  <divider>  <divider-short>  <star>  <sc>small caps</sc>
+#  Placeholders: <name> inserts a value as plain text, %name% also works inside click / hover arguments.
+#  Bedrock players get the <sc> text without small caps when style.bedrock-small-caps is false.
+# ─────────────────────────────────────────────────────────────────────────────────────────────
+
+protection:
+  denied: '<#ff5c5c><b>⛔</b></#ff5c5c> <#ffb3b3><b><sc>Hey!</sc></b></#ffb3b3> <gray><sc>You can''t</sc></gray> <white><action></white> <gray><sc>here.</sc></gray>'
+  command-blocked: '<prefix><#ff5c5c>⛔</#ff5c5c> <gray><sc>The command</sc></gray> <white><command></white> <gray><sc>is blocked in this region.</sc></gray>'
+  chat-blocked: '<prefix><#ff5c5c>🔇</#ff5c5c> <gray><sc>Chat is disabled in this region.</sc></gray>'
+  chat-cooldown: '<prefix><#ffcf5c>⏳</#ffcf5c> <gray><sc>Slow down! Wait</sc></gray> <white><seconds>s</white><gray>.</gray>'
+
+movement:
+  entry-denied: '<prefix><#ff5c5c><b>🚫</b></#ff5c5c> <gray><sc>You may not enter</sc></gray> <white><region></white><gray>.</gray>'
+  exit-denied: '<prefix><#ff5c5c><b>🚫</b></#ff5c5c> <gray><sc>You may not leave</sc></gray> <white><region></white><gray>.</gray>'
+  entry-permission: '<prefix><#ff5c5c>🔒</#ff5c5c> <gray><sc>You don''t have access to</sc></gray> <white><region></white><gray>.</gray>'
+  entry-level-low: '<prefix><#ffcf5c>⭐</#ffcf5c> <gray><sc>Your level is too low to enter</sc></gray> <white><region></white><gray>.</gray>'
+  entry-level-high: '<prefix><#ffcf5c>⭐</#ffcf5c> <gray><sc>Your level is too high to enter</sc></gray> <white><region></white><gray>.</gray>'
+  entry-full: '<prefix><#ffcf5c>👥</#ffcf5c> <white><region></white> <gray><sc>is full right now.</sc></gray>'
+  entry-cooldown: '<prefix><#ffcf5c>⏳</#ffcf5c> <gray><sc>You must wait before entering</sc></gray> <white><region></white> <gray><sc>again.</sc></gray>'
+
+notify:
+  enter: '<prefix><#ffb3b3>➜</#ffb3b3> <white><player></white> <gray><sc>entered</sc></gray> <#ff5c5c><region></#ff5c5c>'
+  leave: '<prefix><#ffb3b3>⬅</#ffb3b3> <white><player></white> <gray><sc>left</sc></gray> <#ff5c5c><region></#ff5c5c>'
+
+spy:
+  denied: '<prefix><#ff5c5c>👁</#ff5c5c> <white><player></white> <gray><sc>tried to</sc></gray> <white><action></white> <gray>(<flag>)</gray> <gray><sc>in</sc></gray> <#ff5c5c><region></#ff5c5c> <dark_gray><x> <y> <z> <world></dark_gray>'
+  worldedit: '<prefix><#ff5c5c>🪓</#ff5c5c> <white><player></white> <gray><sc>tried</sc></gray> <white><command></white> <gray><sc>on</sc></gray> <#ff5c5c><region></#ff5c5c> <dark_gray><x> <y> <z> <world></dark_gray>'
+
+worldedit:
+  denied: '<prefix><#ff5c5c><b>🪓</b></#ff5c5c> <gray><sc>You can''t use</sc></gray> <white><command></white> <gray><sc>on protected region</sc></gray> <#ff5c5c><region></#ff5c5c><gray>.</gray>'
+
+error:
+  no-permission: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>You don''t have permission to do that.</sc></gray>'
+  player-only: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Only players can do that.</sc></gray>'
+  unknown-subcommand: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Unknown sub command</sc></gray> <white><sub></white><gray>. <sc>Try</sc></gray> <click:run_command:"/rg help"><#ffb3b3><u>/rg help</u></#ffb3b3></click>'
+  unknown-region: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>No region named</sc></gray> <white><id></white><gray>.</gray>'
+  unknown-world: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Unknown world</sc></gray> <white><world></white><gray>.</gray>'
+  unknown-player: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Unknown player</sc></gray> <white><player></white><gray>.</gray>'
+  unknown-flag: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Unknown flag</sc></gray> <white><flag></white><gray>. <sc>Did you mean</sc></gray> <#ffb3b3><suggestions></#ffb3b3><gray>?</gray>'
+  unknown-group: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Unknown group</sc></gray> <white><group></white><gray>. <sc>Use</sc> all, members, owners, nonmembers, nonowners, none.</gray>'
+  unknown-preset: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Unknown preset</sc></gray> <white><preset></white><gray>.</gray>'
+  specify-region: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Please specify a region id.</sc></gray>'
+  not-in-region: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>You are not standing in a region.</sc></gray>'
+  invalid-id: '<prefix><#ff5c5c>✖</#ff5c5c> <white><id></white> <gray><sc>is not a valid id (letters, numbers, - _ , '' + /).</sc></gray>'
+  exists: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>A region named</sc></gray> <white><id></white> <gray><sc>already exists.</sc></gray>'
+  not-a-number: '<prefix><#ff5c5c>✖</#ff5c5c> <white><value></white> <gray><sc>is not a number.</sc></gray>'
+  global-not-allowed: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>That does not work on the global region.</sc></gray>'
+  circular: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Circular inheritance:</sc></gray> <white><parent></white> <gray><sc>already inherits from</sc></gray> <white><region></white><gray>.</gray>'
+  flag-format: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Invalid value for</sc></gray> <white><flag></white><gray>: <reason></gray>'
+  flag-disabled: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>The flag</sc></gray> <white><flag></white> <gray><sc>is disabled on this server.</sc></gray>'
+  flag-no-permission: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>You may not change</sc></gray> <white><flag></white><gray>.</gray>'
+  cancelled: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Another plugin cancelled that change.</sc></gray>'
+  internal: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Something went wrong:</sc></gray> <white><error></white>'
+
+usage:
+  define: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg define <id> [owners…]</white>'
+  claim: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg claim <id></white>'
+  redefine: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg redefine <id></white>'
+  remove: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg remove <id> [-f]</white>'
+  rename: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg rename <id> <new-id></white>'
+  priority: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg setpriority <id> <priority></white>'
+  parent: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg setparent <id> [parent]</white>'
+  addowner: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg addowner <id> <player|g:group…></white>'
+  addmember: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg addmember <id> <player|g:group…></white>'
+  removeowner: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg removeowner <id> <player…> [-a]</white>'
+  removemember: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg removemember <id> <player…> [-a]</white>'
+  flag: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg flag <id> <flag> [-g group] [value]</white> <dark_gray>— <sc>leave the value out to unset</sc></dark_gray>'
+  copyflags: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg copyflags <from> <to> [-r]</white>'
+  preset: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg preset <id> <preset></white> <dark_gray>(<presets>)</dark_gray>'
+  search: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg search <text> [page]</white>'
+  seltype: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg seltype <cuboid|poly|cylinder|sphere></white>'
+  expand: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg expand <amount|vert> [direction]</white>'
+  exclude: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg exclude <id> <add|remove|list|clear></white> <dark_gray>— <sc>uses your selection</sc></dark_gray>'
+  lock: '<prefix><gray><sc>Usage:</sc></gray> <white>/rg lock <id> [server|player|break-allowed|break-only]</white>'
+  import: '<prefix><gray><sc>Usage:</sc></gray> <white>/fawg import worldguard [world] [--replace]</white>'
+  backup: '<prefix><gray><sc>Usage:</sc></gray> <white>/fawg backup <create|list|restore> [name]</white>'
+  test: '<prefix><gray><sc>Usage:</sc></gray> <white>/fawg test <flag> [player]</white>'
+
+region:
+  created: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Region</sc></gray> <#ff5c5c><b><id></b></#ff5c5c> <gray><sc>created</sc></gray> <dark_gray>·</dark_gray> <white><volume></white> <gray><sc>blocks</sc></gray> <click:run_command:"/rg info %id%"><hover:show_text:"Open info"><#ffb3b3>[ℹ]</#ffb3b3></hover></click> <click:run_command:"/rg menu %id%"><hover:show_text:"Open the HUD"><#ffb3b3>[⚙]</#ffb3b3></hover></click>'
+  claimed: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>You claimed</sc></gray> <#ff5c5c><b><id></b></#ff5c5c> <dark_gray>·</dark_gray> <white><volume></white> <gray><sc>blocks</sc></gray>'
+  redefined: '<prefix><#7dff8a>✔</#7dff8a> <#ff5c5c><id></#ff5c5c> <gray><sc>now covers</sc></gray> <white><shape></white>'
+  removed: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Region</sc></gray> <#ff5c5c><id></#ff5c5c> <gray><sc>removed.</sc></gray>'
+  renamed: '<prefix><#7dff8a>✔</#7dff8a> <white><old></white> <gray>→</gray> <#ff5c5c><id></#ff5c5c>'
+  priority: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Priority of</sc></gray> <#ff5c5c><id></#ff5c5c> <gray><sc>set to</sc></gray> <white><priority></white>'
+  parent: '<prefix><#7dff8a>✔</#7dff8a> <#ff5c5c><id></#ff5c5c> <gray><sc>now inherits from</sc></gray> <white><parent></white>'
+  parent-cleared: '<prefix><#7dff8a>✔</#7dff8a> <#ff5c5c><id></#ff5c5c> <gray><sc>no longer has a parent.</sc></gray>'
+
+members:
+  owners-added: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Owners added to</sc></gray> <#ff5c5c><id></#ff5c5c><gray>:</gray> <white><players></white>'
+  members-added: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Members added to</sc></gray> <#ff5c5c><id></#ff5c5c><gray>:</gray> <white><players></white>'
+  owners-removed: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Removed</sc></gray> <white><count></white> <gray><sc>owner(s) from</sc></gray> <#ff5c5c><id></#ff5c5c>'
+  members-removed: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Removed</sc></gray> <white><count></white> <gray><sc>member(s) from</sc></gray> <#ff5c5c><id></#ff5c5c>'
+
+flag:
+  set: '<prefix><#7dff8a>⚑</#7dff8a> <#ff5c5c><id></#ff5c5c> <dark_gray>·</dark_gray> <#ffb3b3><flag></#ffb3b3> <gray>=</gray> <white><value></white><gray><group></gray>'
+  cleared: '<prefix><#7dff8a>⚑</#7dff8a> <#ff5c5c><id></#ff5c5c> <dark_gray>·</dark_gray> <#ffb3b3><flag></#ffb3b3> <gray><sc>unset.</sc></gray>'
+  group-set: '<prefix><#7dff8a>⚑</#7dff8a> <#ff5c5c><id></#ff5c5c> <dark_gray>·</dark_gray> <#ffb3b3><flag></#ffb3b3> <gray><sc>now applies to</sc></gray> <white><group></white>'
+  copied: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Copied flags from</sc></gray> <white><from></white> <gray><sc>to</sc></gray> <#ff5c5c><id></#ff5c5c>'
+  all-cleared: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>All flags of</sc></gray> <#ff5c5c><id></#ff5c5c> <gray><sc>cleared.</sc></gray>'
+  preset: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Applied preset</sc></gray> <white><preset></white> <gray>(<count> <sc>flags</sc>) <sc>to</sc></gray> <#ff5c5c><id></#ff5c5c>'
+
+flags:
+  header: '<divider><newline> <#ff5c5c><b>⚑</b></#ff5c5c> <#ffb3b3><b><sc>Flags of</sc></b></#ffb3b3> <white><b><id></b></white> <dark_gray>(<count>) · <sc>page</sc> <page>/<pages></dark_gray>'
+  line: ' <dark_gray>│</dark_gray> <click:suggest_command:"/rg flag %id% %flag% "><hover:show_text:"<desc>"><#ffb3b3><flag></#ffb3b3></hover></click><gray>:</gray> <white><value></white><gray><group></gray>'
+  unknown: ' <dark_gray>│ <sc>Kept (not registered):</sc> <flags></dark_gray>'
+  footer: ' <click:run_command:"/rg flags %id% %prev%"><#ff5c5c>« <sc>prev</sc></#ff5c5c></click>   <click:run_command:"/rg flags %id% %next%"><#ff5c5c><sc>next</sc> »</#ff5c5c></click><newline><divider>'
+
+info:
+  header: '<divider><newline> <#ff5c5c><b>✦</b></#ff5c5c> <#ffb3b3><b><sc>Region</sc></b></#ffb3b3> <white><b><id></b></white> <dark_gray>· <world></dark_gray>'
+  shape: ' <dark_gray>│</dark_gray> <gray><sc>Type</sc></gray> <white><type></white> <dark_gray>·</dark_gray> <gray><sc>Priority</sc></gray> <white><priority></white> <dark_gray>·</dark_gray> <gray><sc>Parent</sc></gray> <white><parent></white>'
+  bounds: ' <dark_gray>│</dark_gray> <gray><sc>Bounds</sc></gray> <white><min></white> <gray>→</gray> <white><max></white> <dark_gray>·</dark_gray> <white><volume></white> <gray><sc>blocks</sc></gray> <dark_gray>· <excludes> <sc>excluded</sc></dark_gray>'
+  owners: ' <dark_gray>│</dark_gray> <#ffcf5c>👑</#ffcf5c> <gray><sc>Owners</sc></gray> <white><owners></white>'
+  members: ' <dark_gray>│</dark_gray> <#ffb3b3>👥</#ffb3b3> <gray><sc>Members</sc></gray> <white><members></white>'
+  flags: ' <dark_gray>│</dark_gray> <#ff5c5c>⚑</#ff5c5c> <gray><sc>Flags</sc> (<count>)</gray> <white><flags></white>'
+  lock: ' <dark_gray>│</dark_gray> <#ff5c5c>🔒</#ff5c5c> <gray><sc>Locked</sc></gray> <white><level></white>'
+  meta: ' <dark_gray>│ <sc>Created</sc> <created> <sc>by</sc> <by> · <sc>modified</sc> <modified></dark_gray>'
+  buttons: ' <click:run_command:"/rg flags %id%"><#ff5c5c>[⚑ <sc>Flags</sc>]</#ff5c5c></click> <click:run_command:"/rg menu %id%"><#ff5c5c>[⚙ <sc>Edit</sc>]</#ff5c5c></click> <click:run_command:"/rg select %id%"><#ff5c5c>[⇄ <sc>Select</sc>]</#ff5c5c></click> <click:run_command:"/rg tp %id%"><#ff5c5c>[🌀 <sc>Teleport</sc>]</#ff5c5c></click> <click:run_command:"/rg vis %id%"><#ff5c5c>[👁 <sc>Show</sc>]</#ff5c5c></click><newline><divider>'
+
+here:
+  none: '<prefix><gray><sc>No regions here — this is wilderness of</sc></gray> <white><world></white><gray>.</gray>'
+  header: '<divider><newline> <#ff5c5c><b>📍</b></#ff5c5c> <#ffb3b3><b><sc>Regions here</sc></b></#ffb3b3> <dark_gray>(<count>)</dark_gray>'
+  line: ' <dark_gray>│</dark_gray> <click:run_command:"/rg info %id%"><#ff5c5c><id></#ff5c5c></click> <dark_gray>· <sc>priority</sc> <priority> · <owner></dark_gray>'
+  build: ' <dark_gray>│</dark_gray> <gray><sc>You can build:</sc></gray> <white><state></white><newline><divider>'
+
+near:
+  none: '<prefix><gray><sc>No regions within</sc></gray> <white><radius></white> <gray><sc>blocks.</sc></gray>'
+  header: '<divider><newline> <#ff5c5c><b>🧭</b></#ff5c5c> <#ffb3b3><b><sc>Nearby regions</sc></b></#ffb3b3> <dark_gray>(<count> <sc>within</sc> <radius>)</dark_gray>'
+  line: ' <dark_gray>│</dark_gray> <click:run_command:"/rg info %id%"><#ff5c5c><id></#ff5c5c></click> <dark_gray>· ~<distance>m</dark_gray>'
+
+list:
+  header: '<divider><newline> <#ff5c5c><b>📜</b></#ff5c5c> <#ffb3b3><b><sc>Regions</sc></b></#ffb3b3> <dark_gray>(<count>) · <world> · <sc>page</sc> <page>/<pages></dark_gray>'
+  line: ' <dark_gray><n>.</dark_gray> <click:run_command:"/rg info %id%"><hover:show_text:"Click for info"><#ff5c5c><id></#ff5c5c></hover></click> <dark_gray>· <sc>pri</sc> <priority> · <flags> <sc>flags</sc> <role></dark_gray>'
+  footer: ' <click:run_command:"/rg list %prev%"><#ff5c5c>« <sc>prev</sc></#ff5c5c></click>   <click:run_command:"/rg list %next%"><#ff5c5c><sc>next</sc> »</#ff5c5c></click><newline><divider>'
+
+count:
+  line: ' <dark_gray>│</dark_gray> <gray><world></gray> <white><count></white>'
+  total: '<prefix><gray><sc>Total regions:</sc></gray> <white><count></white>'
+
+selection:
+  pos1: '<prefix><#ff5c5c>①</#ff5c5c> <gray><sc>First position</sc></gray> <white><x>, <y>, <z></white> <dark_gray>· <info></dark_gray>'
+  pos2: '<prefix><#ff5c5c>②</#ff5c5c> <gray><sc>Second position</sc></gray> <white><x>, <y>, <z></white> <dark_gray>· <info></dark_gray>'
+  poly-start: '<prefix><#ff5c5c>⬢</#ff5c5c> <gray><sc>Polygon started at</sc></gray> <white><x>, <z></white>'
+  poly-point: '<prefix><#ff5c5c>⬢</#ff5c5c> <gray><sc>Point</sc> #<count></gray> <white><x>, <z></white> <dark_gray>· <info></dark_gray>'
+  type: '<prefix><#ff5c5c>✦</#ff5c5c> <gray><sc>Selection shape:</sc></gray> <white><type></white>'
+  modified: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Selection</sc></gray> <white><info></white>'
+  cleared: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Selection cleared.</sc></gray>'
+  info: '<prefix><#ff5c5c>✦</#ff5c5c> <gray><sc>Selection</sc> (<type>)</gray> <white><info></white>'
+  none: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Make a selection first with</sc></gray> <click:run_command:"/rg wand"><#ffb3b3><u>/rg wand</u></#ffb3b3></click> <gray><sc>or WorldEdit.</sc></gray>'
+  incomplete: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Your selection is incomplete:</sc></gray> <white><info></white>'
+  region: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Selected</sc></gray> <#ff5c5c><id></#ff5c5c> <dark_gray>· <shape></dark_gray>'
+
+wand:
+  given: '<prefix><#7dff8a>🪄</#7dff8a> <gray><sc>Here is your selection wand.</sc></gray>'
+  name: '<gradient:#8b0000:#ff5c5c><b><sc>FAWG Wand</sc></b></gradient>'
+  lore-1: '<gray><sc>Left click</sc> → <sc>first point</sc></gray>'
+  lore-2: '<gray><sc>Right click</sc> → <sc>second point / add point</sc></gray>'
+  lore-3: '<gray><sc>Sneak + right click air</sc> → <sc>change shape</sc></gray>'
+
+visualize:
+  region: '<prefix><#ff5c5c>👁</#ff5c5c> <gray><sc>Highlighting</sc></gray> <#ff5c5c><id></#ff5c5c> <gray><sc>in red.</sc></gray>'
+  nearby-on: '<prefix><#ff5c5c>👁</#ff5c5c> <gray><sc>Nearby regions are now highlighted.</sc></gray>'
+  nearby-off: '<prefix><#ff5c5c>👁</#ff5c5c> <gray><sc>Nearby highlighting off.</sc></gray>'
+  cleared: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Highlights cleared.</sc></gray>'
+
+exclude:
+  added: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Carved your selection out of</sc></gray> <#ff5c5c><id></#ff5c5c> <dark_gray>(<count>)</dark_gray>'
+  removed: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Removed exclusions touching your selection from</sc></gray> <#ff5c5c><id></#ff5c5c> <dark_gray>(<count>)</dark_gray>'
+  cleared: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Exclusions of</sc></gray> <#ff5c5c><id></#ff5c5c> <gray><sc>cleared.</sc></gray>'
+  header: '<prefix><gray><sc>Exclusions of</sc></gray> <#ff5c5c><id></#ff5c5c> <dark_gray>(<count>)</dark_gray>'
+  line: ' <dark_gray><n>.</dark_gray> <white><shape></white>'
+
+lock:
+  set: '<prefix><#ff5c5c>🔒</#ff5c5c> <#ff5c5c><id></#ff5c5c> <gray><sc>is now locked:</sc></gray> <white><level></white>'
+  removed: '<prefix><#7dff8a>🔓</#7dff8a> <#ff5c5c><id></#ff5c5c> <gray><sc>is no longer locked.</sc></gray>'
+  server-locked: '<prefix><#ff5c5c>🔒</#ff5c5c> <#ff5c5c><region></#ff5c5c> <gray><sc>is locked by the server.</sc></gray>'
+
+teleport:
+  done: '<prefix><#7dff8a>🌀</#7dff8a> <gray><sc>Teleported to</sc></gray> <#ff5c5c><id></#ff5c5c><gray>.</gray>'
+  no-location: '<prefix><#ff5c5c>✖</#ff5c5c> <#ff5c5c><id></#ff5c5c> <gray><sc>has no teleport location. Set one with</sc></gray> <white>/rg setteleport</white>'
+
+bypass:
+  on: '<prefix><#ffcf5c>⚡</#ffcf5c> <gray><sc>Region bypass</sc></gray> <#7dff8a><b><sc>enabled</sc></b></#7dff8a>'
+  off: '<prefix><#ffcf5c>⚡</#ffcf5c> <gray><sc>Region bypass</sc></gray> <#ff5c5c><b><sc>disabled</sc></b></#ff5c5c>'
+
+claim:
+  too-many: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>You already own the maximum of</sc></gray> <white><max></white> <gray><sc>regions.</sc></gray>'
+  too-big: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Too big:</sc></gray> <white><volume></white> <gray><sc>blocks (max</sc></gray> <white><max></white><gray>).</gray>'
+  overlap: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Your selection overlaps</sc></gray> <#ff5c5c><region></#ff5c5c> <gray><sc>which you don''t own.</sc></gray>'
+  not-inside: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Claims must be inside a region you own.</sc></gray>'
+
+storage:
+  loaded: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Reloaded</sc></gray> <white><count></white> <gray><sc>regions.</sc></gray>'
+  saved: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Saving all regions…</sc></gray>'
+
+migrate:
+  db: '<prefix><gray><sc>FAWG stores regions in fast atomic YAML files. Use</sc></gray> <white>/fawg import worldguard</white> <gray><sc>to bring regions over from WorldGuard.</sc></gray>'
+  uuid: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Converted</sc></gray> <white><count></white> <gray><sc>names to UUIDs.</sc></gray>'
+  heights: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Extended</sc></gray> <white><count></white> <gray><sc>full height regions to the new world height.</sc></gray>'
+
+import:
+  none-found: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>No WorldGuard regions found in</sc></gray> <white><path></white>'
+  started: '<prefix><#ffcf5c>⏳</#ffcf5c> <gray><sc>Backing up and importing WorldGuard worlds:</sc></gray> <white><worlds></white>'
+  done: '<divider><newline> <#7dff8a><b>✔</b></#7dff8a> <#ffb3b3><b><sc>WorldGuard import finished</sc></b></#ffb3b3><newline> <dark_gray>│</dark_gray> <gray><sc>Worlds</sc></gray> <white><worlds></white> <dark_gray>·</dark_gray> <gray><sc>Regions</sc></gray> <white><regions></white> <dark_gray>·</dark_gray> <gray><sc>Skipped</sc></gray> <white><skipped></white><newline> <dark_gray>│</dark_gray> <gray><sc>Flags</sc></gray> <white><flags></white> <dark_gray>·</dark_gray> <gray><sc>Kept unknown</sc></gray> <white><unknown></white> <dark_gray>·</dark_gray> <gray><sc>RegionProtect locks</sc></gray> <white><locks></white><newline><divider>'
+  warning: ' <dark_gray>│</dark_gray> <#ffcf5c>⚠</#ffcf5c> <gray><warning></gray>'
+  more-warnings: ' <dark_gray>│ … <count> <sc>more warnings in the console</sc></dark_gray>'
+  cleanup-hint: '<prefix><#ffcf5c>⚠</#ffcf5c> <gray><sc>Old plugins still installed:</sc></gray> <white><jars></white><gray>. <sc>Remove them with</sc></gray> <click:suggest_command:"/fawg cleanup confirm"><#ffb3b3><u>/fawg cleanup confirm</u></#ffb3b3></click>'
+
+cleanup:
+  nothing: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>No WorldGuard jars installed.</sc></gray>'
+  confirm: '<prefix><#ffcf5c>⚠</#ffcf5c> <gray><sc>This moves these jars to</sc></gray> <white>plugins/FastAsyncWorldGuard/legacy-worldguard</white><gray>:</gray> <white><jars></white><gray>. <sc>Confirm with</sc></gray> <click:run_command:"/fawg cleanup confirm"><#ff5c5c><u>/fawg cleanup confirm</u></#ff5c5c></click>'
+  line: ' <dark_gray>│</dark_gray> <white><line></white>'
+  restart: '<prefix><#ffcf5c>↻</#ffcf5c> <gray><sc>Restart the server to finish removing WorldGuard.</sc></gray>'
+
+backup:
+  created: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Backup created:</sc></gray> <white><file></white>'
+  failed: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Backup failed, see console.</sc></gray>'
+  header: '<prefix><gray><sc>Backups</sc> (<count>)</gray>'
+  line: ' <dark_gray>│</dark_gray> <click:suggest_command:"/fawg backup restore %file%"><white><file></white></click>'
+  restored: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Restored</sc></gray> <white><file></white>'
+  restore-failed: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Could not restore</sc></gray> <white><file></white>'
+
+bench:
+  fawg: '<divider><newline> <#ff5c5c><b>⚡</b></#ff5c5c> <#ffb3b3><b><sc>FAWG</sc></b></#ffb3b3> <white><ns> ns</white> <gray><sc>per region lookup + build check</sc></gray> <dark_gray>(<n> <sc>queries</sc>, <regions> <sc>regions</sc>)</dark_gray>'
+  worldguard: ' <#ff5c5c><b>⚡</b></#ff5c5c> <#ffb3b3><b><sc>WorldGuard</sc></b></#ffb3b3> <white><ns> ns</white> <dark_gray>→</dark_gray> <#7dff8a><b><faster>% <sc>faster</sc></b></#7dff8a> <dark_gray>(<ratio>×)</dark_gray><newline><divider>'
+  no-worldguard: ' <dark_gray>│ <sc>Install WorldGuard temporarily to compare side by side.</sc></dark_gray><newline><divider>'
+
+test:
+  header: '<divider><newline> <#ff5c5c><b>🔎</b></#ff5c5c> <#ffb3b3><b><flag></b></#ffb3b3> <gray><sc>for</sc></gray> <white><player></white> <dark_gray>· <regions></dark_gray>'
+  chain: ' <dark_gray>│</dark_gray> <#ffb3b3><flag></#ffb3b3> <gray>=</gray> <white><value></white> <dark_gray><gated></dark_gray>'
+  result: ' <dark_gray>│</dark_gray> <gray><sc>Result</sc></gray> <#ff5c5c><b><value></b></#ff5c5c> <dark_gray>· <sc>bypass</sc> <bypass> · <sc>membership</sc> <membership></dark_gray><newline><divider>'
+
+flaglist:
+  categories: '<divider><newline> <#ff5c5c><b>⚑</b></#ff5c5c> <#ffb3b3><b><sc>Flag library</sc></b></#ffb3b3> <dark_gray>(<count> <sc>flags</sc>, <generated> <sc>generated families</sc>)</dark_gray>'
+  category: ' <dark_gray>│</dark_gray> <click:run_command:"/fawg flags %id%"><white><emoji> <name></white></click> <dark_gray>(<count>)</dark_gray>'
+  header: '<divider><newline> <#ff5c5c><b>⚑</b></#ff5c5c> <#ffb3b3><b><query></b></#ffb3b3> <dark_gray>(<count>) · <sc>page</sc> <page>/<pages></dark_gray>'
+  line: ' <dark_gray>│</dark_gray> <click:suggest_command:"%flag%"><#ffb3b3><flag></#ffb3b3></click> <dark_gray><type></dark_gray> <gray>— <desc></gray>'
+  footer: ' <click:run_command:"/fawg flags %query% %prev%"><#ff5c5c>« <sc>prev</sc></#ff5c5c></click>   <click:run_command:"/fawg flags %query% %next%"><#ff5c5c><sc>next</sc> »</#ff5c5c></click><newline><divider>'
+
+stats:
+  body: '<divider><newline> <#ff5c5c><b>📊</b></#ff5c5c> <#ffb3b3><b><sc>FAWG stats</sc></b></#ffb3b3><newline> <dark_gray>│</dark_gray> <gray><sc>Regions</sc></gray> <white><regions></white> <dark_gray>in</dark_gray> <white><worlds></white> <gray><sc>worlds</sc></gray><newline> <dark_gray>│</dark_gray> <gray><sc>Flags</sc></gray> <white><flags></white> <dark_gray>(<generated> <sc>generated</sc>)</dark_gray><newline> <dark_gray>│</dark_gray> <gray><sc>Index</sc></gray> <white><buckets></white> <gray><sc>chunk buckets</sc>,</gray> <white><large></white> <gray><sc>giant regions</sc></gray><newline> <dark_gray>│</dark_gray> <gray><sc>Sessions</sc></gray> <white><sessions></white> <dark_gray>·</dark_gray> <gray><sc>Last benchmark</sc></gray> <white><bench></white><newline> <dark_gray>│</dark_gray> <gray><sc>WorldEdit</sc></gray> <white><fawe></white> <dark_gray>·</dark_gray> <gray><sc>Bedrock</sc></gray> <white><bedrock></white><newline><divider>'
+
+util:
+  god-on: '<prefix><#7dff8a>✔</#7dff8a> <white><player></white> <gray><sc>is now invulnerable.</sc></gray>'
+  god-off: '<prefix><#7dff8a>✔</#7dff8a> <white><player></white> <gray><sc>is no longer invulnerable.</sc></gray>'
+  healed: '<prefix><#7dff8a>❤</#7dff8a> <white><player></white> <gray><sc>healed.</sc></gray>'
+  slain: '<prefix><#ff5c5c>☠</#ff5c5c> <white><player></white> <gray><sc>slain.</sc></gray>'
+  stoplag-preview: '<prefix><#ffcf5c>⚠</#ffcf5c> <white><count></white> <gray><sc>entities would be removed. Run</sc></gray> <click:run_command:"/fawg stoplag -c"><#ff5c5c><u>/fawg stoplag -c</u></#ff5c5c></click>'
+  stoplag-done: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Removed</sc></gray> <white><count></white> <gray><sc>entities.</sc></gray>'
+
+admin:
+  reloaded: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Reloaded</sc></gray> <white><count></white> <gray><sc>regions and</sc></gray> <white><flags></white> <gray><sc>flags.</sc></gray>'
+  version: '<divider><newline> <gradient:#8b0000:#ff5555><b><sc>FastAsyncWorldGuard</sc></b></gradient> <white>v<version></white><newline> <dark_gray>│</dark_gray> <gray><sc>Flags</sc></gray> <white><flags></white> <dark_gray>·</dark_gray> <gray><sc>Server</sc></gray> <white><server></white> <dark_gray>·</dark_gray> <gray><sc>Editor</sc></gray> <white><fawe></white><newline><divider>'
+  fire-stopped: '<prefix><#ff5c5c>🔥</#ff5c5c> <gray><sc>Fire spread stopped everywhere.</sc></gray>'
+  fire-allowed: '<prefix><#7dff8a>🔥</#7dff8a> <gray><sc>Fire spread allowed again.</sc></gray>'
+  update-available: '<prefix><#ffcf5c>⬆</#ffcf5c> <gray><sc>FAWG</sc></gray> <white><version></white> <gray><sc>is available on Modrinth.</sc></gray>'
+  worldguard-detected: '<prefix><#ffcf5c>⚠</#ffcf5c> <gray><sc>WorldGuard is still installed.</sc></gray> <click:suggest_command:"/fawg import worldguard"><#ffb3b3><u><sc>Import its regions</sc></u></#ffb3b3></click> <gray><sc>then</sc></gray> <click:suggest_command:"/fawg cleanup confirm"><#ffb3b3><u><sc>remove it</sc></u></#ffb3b3></click><gray>.</gray>'
+
+help:
+  header: '<divider><newline> <gradient:#8b0000:#ff5555><b><sc>FAWG · Region commands</sc></b></gradient> <dark_gray>(<sc>page</sc> <page>/<pages>)</dark_gray>'
+  footer: ' <click:run_command:"/rg help %prev%"><#ff5c5c>« <sc>prev</sc></#ff5c5c></click>   <click:run_command:"/rg help %next%"><#ff5c5c><sc>next</sc> »</#ff5c5c></click><newline><divider>'
+  region-lines: |-
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg define "><#ffb3b3>/rg define <id> [owners]</#ffb3b3></click> <gray>— <sc>create from selection</sc></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg claim "><#ffb3b3>/rg claim <id></#ffb3b3></click> <gray>— <sc>claim with limits</sc></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg redefine "><#ffb3b3>/rg redefine <id></#ffb3b3></click> <gray>— <sc>change area</sc></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg info "><#ffb3b3>/rg info [id]</#ffb3b3></click> <gray>— <sc>region details</sc></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg flag "><#ffb3b3>/rg flag <id> <flag> [-g group] [value]</#ffb3b3></click> <gray>— <sc>set a flag</sc></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg flags "><#ffb3b3>/rg flags <id></#ffb3b3></click> <gray>— <sc>list flags</sc></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg addmember "><#ffb3b3>/rg addmember | addowner <id> <players></#ffb3b3></click>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg removemember "><#ffb3b3>/rg removemember | removeowner <id> <players></#ffb3b3></click>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg setpriority "><#ffb3b3>/rg setpriority <id> <n></#ffb3b3></click> <gray>· <click:suggest_command:"/rg setparent "><#ffb3b3>/rg setparent <id> [parent]</#ffb3b3></click></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg remove "><#ffb3b3>/rg remove <id> [-f]</#ffb3b3></click> <gray>· <click:suggest_command:"/rg rename "><#ffb3b3>/rg rename <id> <new></#ffb3b3></click></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg select "><#ffb3b3>/rg select [id]</#ffb3b3></click> <gray>— <sc>select + highlight red</sc></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg tp "><#ffb3b3>/rg teleport <id> [-s] [-c]</#ffb3b3></click>
+     <dark_gray>│</dark_gray> <click:run_command:"/rg list"><#ffb3b3>/rg list [page] [-p player] [-w world] [-n filter]</#ffb3b3></click>
+     <dark_gray>│</dark_gray> <click:run_command:"/rg here"><#ffb3b3>/rg here</#ffb3b3></click> <gray>· <click:run_command:"/rg near"><#ffb3b3>/rg near [radius]</#ffb3b3></click> · <click:suggest_command:"/rg search "><#ffb3b3>/rg search <text></#ffb3b3></click></gray>
+     <dark_gray>│</dark_gray> <click:run_command:"/rg wand"><#ffb3b3>/rg wand</#ffb3b3></click> <gray>· /rg pos1 · /rg pos2 · <click:suggest_command:"/rg seltype "><#ffb3b3>/rg seltype <shape></#ffb3b3></click></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg expand "><#ffb3b3>/rg expand | contract | shift <n|vert> [dir]</#ffb3b3></click>
+     <dark_gray>│</dark_gray> <click:run_command:"/rg selinfo"><#ffb3b3>/rg selinfo</#ffb3b3></click> <gray>· <click:run_command:"/rg clearsel"><#ffb3b3>/rg clearsel</#ffb3b3></click></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg exclude "><#ffb3b3>/rg exclude <id> add|remove|list|clear</#ffb3b3></click> <gray>— <sc>carve holes</sc></gray>
+     <dark_gray>│</dark_gray> <click:run_command:"/rg vis"><#ffb3b3>/rg visualize [id|nearby|off]</#ffb3b3></click> <gray>— <sc>red outlines</sc></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg preset "><#ffb3b3>/rg preset <id> <preset></#ffb3b3></click> <gray>· <click:suggest_command:"/rg copyflags "><#ffb3b3>/rg copyflags <a> <b></#ffb3b3></click></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg clearflags "><#ffb3b3>/rg clearflags <id></#ffb3b3></click> <gray>· <click:suggest_command:"/rg setteleport "><#ffb3b3>/rg setteleport [id]</#ffb3b3></click></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/rg lock "><#ffb3b3>/rg lock <id> [level]</#ffb3b3></click> <gray>· <click:suggest_command:"/rg unlock "><#ffb3b3>/rg unlock <id></#ffb3b3></click></gray>
+     <dark_gray>│</dark_gray> <click:run_command:"/rg bypass"><#ffb3b3>/rg bypass</#ffb3b3></click> <gray>· /rg save · /rg load · /rg count</gray>
+     <dark_gray>│</dark_gray> <gray>/rg migrateuuid · /rg migrateheights · /rg migratedb</gray>
+     <dark_gray>│</dark_gray> <click:run_command:"/rg menu"><#ff5c5c><b>/rg menu</b></#ff5c5c></click> <gray>— <sc>open the HUD</sc></gray>
+  admin-header: '<divider><newline> <gradient:#8b0000:#ff5555><b><sc>FAWG · Admin</sc></b></gradient>'
+  admin-footer: '<divider>'
+  admin-lines: |-
+     <dark_gray>│</dark_gray> <click:run_command:"/fawg menu"><#ffb3b3>/fawg menu</#ffb3b3></click> <gray>— <sc>HUD</sc></gray>
+     <dark_gray>│</dark_gray> <click:run_command:"/fawg reload"><#ffb3b3>/fawg reload</#ffb3b3></click> <gray>· <click:run_command:"/fawg version"><#ffb3b3>/fawg version</#ffb3b3></click> · <click:run_command:"/fawg stats"><#ffb3b3>/fawg stats</#ffb3b3></click></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/fawg import worldguard"><#ffb3b3>/fawg import worldguard [world] [--replace]</#ffb3b3></click>
+     <dark_gray>│</dark_gray> <click:run_command:"/fawg cleanup"><#ffb3b3>/fawg cleanup [confirm]</#ffb3b3></click> <gray>— <sc>remove old WorldGuard jars</sc></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/fawg backup "><#ffb3b3>/fawg backup create|list|restore</#ffb3b3></click>
+     <dark_gray>│</dark_gray> <click:run_command:"/fawg benchmark"><#ffb3b3>/fawg benchmark [n]</#ffb3b3></click> <gray>— <sc>compare with WorldGuard</sc></gray>
+     <dark_gray>│</dark_gray> <click:suggest_command:"/fawg test "><#ffb3b3>/fawg test <flag> [player]</#ffb3b3></click> <gray>— <sc>explain a flag</sc></gray>
+     <dark_gray>│</dark_gray> <click:run_command:"/fawg flags"><#ffb3b3>/fawg flags [category|search]</#ffb3b3></click>
+     <dark_gray>│</dark_gray> <gray>/fawg god · ungod · heal · slay [player] · stoplag [-c] · stopfire · allowfire</gray>
+
+# ─────────────────────────────────────────── HUD (dialogs + Bedrock chest GUI) ───────────────────────────────────────────
+gui:
+  saved: '<prefix><#7dff8a>✔</#7dff8a> <gray><sc>Saved.</sc></gray>'
+  shift-to-confirm: '<prefix><#ffcf5c>⚠</#ffcf5c> <gray><sc>Shift click to confirm.</sc></gray>'
+  notice-title: '<gradient:#8b0000:#ff5c5c><b><sc>FAWG</sc></b></gradient>'
+  back: '<#ffb3b3>⬅ <b><sc>Back</sc></b></#ffb3b3>'
+  close: '<#ff5c5c>✖ <b><sc>Close</sc></b></#ff5c5c>'
+  save: '<#7dff8a>✔ <b><sc>Save</sc></b></#7dff8a>'
+  apply: '<#7dff8a>✔ <b><sc>Apply</sc></b></#7dff8a>'
+  prev: '<#ffb3b3>« <b><sc>Previous</sc></b></#ffb3b3>'
+  next: '<#ffb3b3><b><sc>Next</sc></b> »</#ffb3b3>'
+  search: '<#ffb3b3>🔎 <b><sc>Search</sc></b></#ffb3b3>'
+  search-title: '<gradient:#8b0000:#ff5c5c><b><sc>Search</sc></b></gradient>'
+  search-label: '<gray><sc>Search text</sc></gray>'
+  chest-flag-hint: '<dark_gray><sc>Click to change</sc></dark_gray>'
+  main:
+    title: '<gradient:#8b0000:#ff5c5c><b><sc>FastAsyncWorldGuard</sc></b></gradient> <#ffb3b3>✦</#ffb3b3>'
+    welcome: '<gray><sc>Welcome back,</sc></gray> <white><b><player></b></white>'
+    location: '<gray>📍 <sc>You are in</sc></gray> <#ff5c5c><b><region></b></#ff5c5c> <dark_gray>(<count> <sc>regions here</sc>)</dark_gray>'
+    stats: '<gray>👑 <sc>You own</sc></gray> <white><owned></white> <dark_gray>·</dark_gray> <gray>🗺 <sc>Server</sc></gray> <white><total></white> <dark_gray>·</dark_gray> <gray>⚑</gray> <white><flags></white> <gray><sc>flags</sc></gray>'
+    no-region-here: '<gray><sc>There is no region where you are standing.</sc></gray>'
+    here: '<#ff5c5c>📍</#ff5c5c> <b><sc>Region Here</sc></b>'
+    mine: '<#ff5c5c>📜</#ff5c5c> <b><sc>My Regions</sc></b>'
+    all: '<#ff5c5c>🌍</#ff5c5c> <b><sc>All Regions</sc></b>'
+    create: '<#7dff8a>✚</#7dff8a> <b><sc>Create Region</sc></b>'
+    selection: '<#ffb3b3>🪄</#ffb3b3> <b><sc>Selection</sc></b>'
+    library: '<#ffb3b3>⚑</#ffb3b3> <b><sc>Flag Library</sc></b>'
+    visualizer: '<#ffb3b3>👁</#ffb3b3> <b><sc>Toggle Outlines</sc></b>'
+    settings: '<#ffb3b3>⚙</#ffb3b3> <b><sc>Settings</sc></b>'
+    admin: '<#ffcf5c>🛠</#ffcf5c> <b><sc>Admin</sc></b>'
+  list:
+    title-mine: '<gradient:#8b0000:#ff5c5c><b><sc>My Regions</sc></b></gradient>'
+    title-all: '<gradient:#8b0000:#ff5c5c><b><sc>All Regions</sc></b></gradient>'
+    info: '<gray><count> <sc>regions in</sc></gray> <white><world></white> <dark_gray>· <sc>page</sc> <page>/<pages></dark_gray>'
+    entry: '<#ff5c5c><b><id></b></#ff5c5c> <dark_gray><role></dark_gray>'
+    tooltip: '<gray><shape> · <flags> <sc>flags</sc></gray>'
+  region:
+    title: '<gradient:#8b0000:#ff5c5c><b><sc>Region</sc></b></gradient> <white><b><id></b></white>'
+    summary: '<#ff5c5c>✦</#ff5c5c> <white><b><name></b></white> <dark_gray>(<id>) · <world></dark_gray>'
+    shape: '<gray><sc>Type</sc></gray> <white><type></white> <dark_gray>·</dark_gray> <gray><sc>Priority</sc></gray> <white><priority></white> <dark_gray>·</dark_gray> <gray><sc>Parent</sc></gray> <white><parent></white>'
+    bounds: '<gray><min> → <max></gray> <dark_gray>·</dark_gray> <white><volume></white> <gray><sc>blocks</sc></gray>'
+    people: '<gray>👑 <owners> <sc>owners</sc> · 👥 <members> <sc>members</sc> · ⚑ <flags> <sc>flags</sc></gray>'
+    locked: '<#ff5c5c>🔒 <sc>Locked</sc>: <level></#ff5c5c>'
+    flags: '<#ff5c5c>⚑</#ff5c5c> <b><sc>Flags</sc></b>'
+    members: '<#ffb3b3>👥</#ffb3b3> <b><sc>Members</sc></b>'
+    owners: '<#ffcf5c>👑</#ffcf5c> <b><sc>Owners</sc></b>'
+    settings: '<#ffb3b3>⚙</#ffb3b3> <b><sc>Settings</sc></b>'
+    teleport: '<#ffb3b3>🌀</#ffb3b3> <b><sc>Teleport</sc></b>'
+    visualize: '<#ff5c5c>👁</#ff5c5c> <b><sc>Highlight</sc></b>'
+    select: '<#ffb3b3>⇄</#ffb3b3> <b><sc>Select</sc></b>'
+    presets: '<#ffb3b3>✧</#ffb3b3> <b><sc>Presets</sc></b>'
+    lock: '<#ff5c5c>🔒</#ff5c5c> <b><sc>Lock</sc></b>'
+    delete: '<#ff3030>🗑</#ff3030> <b><sc>Delete</sc></b>'
+  delete:
+    title: '<#ff3030><b><sc>Delete</sc></b></#ff3030> <white><id></white><#ff3030>?</#ff3030>'
+    body: '<gray><sc>This permanently removes</sc></gray> <white><id></white><gray>. <sc>Children keep existing.</sc></gray>'
+    yes: '<#ff3030>🗑 <b><sc>Delete</sc></b></#ff3030>'
+    no: '<#ffb3b3>⬅ <b><sc>Keep</sc></b></#ffb3b3>'
+  settings:
+    title: '<gradient:#8b0000:#ff5c5c><b><sc>Settings</sc></b></gradient> <white><id></white>'
+    priority: '<gray><sc>Priority</sc></gray>'
+    parent: '<gray><sc>Parent region (empty = none)</sc></gray>'
+    rename: '<gray><sc>Region id (rename)</sc></gray>'
+    display: '<gray><sc>Display name (MiniMessage)</sc></gray>'
+  members:
+    title-members: '<gradient:#8b0000:#ff5c5c><b><sc>Members</sc></b></gradient> <white><id></white>'
+    title-owners: '<gradient:#8b0000:#ff5c5c><b><sc>Owners</sc></b></gradient> <white><id></white>'
+    current-members: '<gray>👥 <sc>Members:</sc></gray> <white><list></white>'
+    current-owners: '<gray>👑 <sc>Owners:</sc></gray> <white><list></white>'
+    hint: '<dark_gray><sc>Names, UUIDs or g:group — separated by commas.</sc></dark_gray>'
+    who: '<gray><sc>Players / groups</sc></gray>'
+    action: '<gray><sc>Action</sc></gray>'
+    add: '<#7dff8a><sc>Add</sc></#7dff8a>'
+    remove: '<#ff5c5c><sc>Remove</sc></#ff5c5c>'
+    clear: '<#ff5c5c>✖ <b><sc>Remove all</sc></b></#ff5c5c>'
+    empty: '<prefix><#ff5c5c>✖</#ff5c5c> <gray><sc>Enter at least one player.</sc></gray>'
+  flags:
+    title: '<gradient:#8b0000:#ff5c5c><b><sc>Flags</sc></b></gradient> <white><id></white>'
+    title-library: '<gradient:#8b0000:#ff5c5c><b><sc>Flag Library</sc></b></gradient>'
+    title-category: '<gradient:#8b0000:#ff5c5c><b><emoji> <sc><name></sc></b></gradient>'
+    title-results: '<gradient:#8b0000:#ff5c5c><b><sc>Search results</sc></b></gradient>'
+    search-title: '<gradient:#8b0000:#ff5c5c><b><sc>Search flags</sc></b></gradient>'
+    intro: '<gray><sc>Browse</sc></gray> <white><count></white> <gray><sc>flags by category.</sc></gray> <dark_gray>(<set> <sc>set on this region</sc>)</dark_gray>'
+    set-only: '<#ff5c5c>★</#ff5c5c> <b><sc>Set flags</sc></b> <dark_gray>(<count>)</dark_gray>'
+    search: '<#ffb3b3>🔎</#ffb3b3> <b><sc>Search</sc></b>'
+    category: '<white><emoji></white> <b><sc><name></sc></b> <dark_gray>(<count>)</dark_gray>'
+    page: '<gray><count> <sc>flags</sc></gray> <dark_gray>· <sc>page</sc> <page>/<pages></dark_gray>'
+    entry-allow: '<#7dff8a>●</#7dff8a> <white><flag></white>'
+    entry-deny: '<#ff5c5c>●</#ff5c5c> <white><flag></white>'
+    entry-value: '<#ffcf5c>●</#ffcf5c> <white><flag></white> <dark_gray><value></dark_gray>'
+    entry-unset: '<dark_gray>○</dark_gray> <gray><flag></gray>'
+    tooltip: '<gray><desc></gray><newline><dark_gray><type></dark_gray>'
+    info: '<#ffb3b3><b><flag></b></#ffb3b3><newline><gray><desc></gray><newline><dark_gray><sc>Type</sc> <type> · <category></dark_gray>'
+  edit:
+    title: '<gradient:#8b0000:#ff5c5c><b>⚑ <flag></b></gradient>'
+    body: '<gray><desc></gray><newline><dark_gray><sc>Type</sc> <type> · <sc>current</sc></dark_gray> <white><value></white> <dark_gray>· <sc>group</sc> <group></dark_gray>'
+    value: '<gray><sc>Value</sc></gray>'
+    allow: '<#7dff8a><label></#7dff8a>'
+    deny: '<#ff5c5c><label></#ff5c5c>'
+    unset: '<gray><sc>unset</sc></gray>'
+    text: '<gray><sc>Value</sc></gray>'
+    location: '<gray><sc>world,x,y,z[,yaw,pitch]</sc></gray>'
+    group: '<gray><sc>Applies to</sc></gray>'
+    here: '<#ffb3b3>📍 <b><sc>Use my location</sc></b></#ffb3b3>'
+    clear: '<#ff5c5c>✖ <b><sc>Unset</sc></b></#ff5c5c>'
+  presets:
+    title: '<gradient:#8b0000:#ff5c5c><b><sc>Presets</sc></b></gradient> <white><id></white>'
+    body: '<gray><sc>Apply a ready made bundle of flags (edit them in config.yml).</sc></gray>'
+    entry: '<#ffb3b3>✧</#ffb3b3> <b><sc><preset></sc></b> <dark_gray>(<count>)</dark_gray>'
+    tooltip: '<gray><flags></gray>'
+  lock:
+    title: '<gradient:#8b0000:#ff5c5c><b><sc>Lock</sc></b></gradient> <white><id></white>'
+    body: '<gray><sc>Locked regions can''t be edited, built in or WorldEdited — even by staff without</sc></gray> <white>fawg.lock.bypass</white><gray>.</gray>'
+    label: '<gray><sc>Lock level</sc></gray>'
+    level-none: '<gray><sc>None</sc></gray>'
+    level-server: '<#ff5c5c><sc>Server (console only)</sc></#ff5c5c>'
+    level-player: '<#ffcf5c><sc>Player (owners keep access)</sc></#ffcf5c>'
+    level-break_allowed: '<#ffb3b3><sc>Locked, breaking allowed</sc></#ffb3b3>'
+    level-break_only: '<#ffb3b3><sc>Only breaking allowed</sc></#ffb3b3>'
+  create:
+    title: '<gradient:#8b0000:#ff5c5c><b>✚ <sc>Create region</sc></b></gradient>'
+    selection: '<gray><sc>FAWG selection</sc></gray> <white><info></white><newline><gray><sc>WorldEdit selection</sc></gray> <white><worldedit></white>'
+    hint: '<dark_gray><sc>Use /rg wand (or the WorldEdit wand) to select an area first.</sc></dark_gray>'
+    id: '<gray><sc>Region id</sc></gray>'
+    vertical: '<gray><sc>Expand from bedrock to sky</sc></gray>'
+    claim: '<gray><sc>Claim it (make me owner, apply claim limits)</sc></gray>'
+    priority: '<gray><sc>Priority</sc></gray>'
+    button: '<#7dff8a>✚ <b><sc>Create</sc></b></#7dff8a>'
+  selection:
+    title: '<gradient:#8b0000:#ff5c5c><b>🪄 <sc>Selection</sc></b></gradient>'
+    info: '<gray><sc>Shape</sc></gray> <white><type></white> <dark_gray>·</dark_gray> <white><info></white>'
+    hint: '<dark_gray><sc>Left click: point 1 · Right click: point 2 / add polygon point · Sneak + right click air: change shape</sc></dark_gray>'
+    type: '<gray><sc>Shape</sc></gray>'
+    type-cuboid: '<white><sc>Cuboid</sc></white>'
+    type-poly: '<white><sc>Polygon</sc></white>'
+    type-cylinder: '<white><sc>Cylinder</sc></white>'
+    type-sphere: '<white><sc>Sphere</sc></white>'
+    apply-type: '<#7dff8a>✔ <b><sc>Set shape</sc></b></#7dff8a>'
+    wand: '<#ffb3b3>🪄 <b><sc>Get wand</sc></b></#ffb3b3>'
+    pos1: '<#ffb3b3>① <b><sc>Point 1 here</sc></b></#ffb3b3>'
+    pos2: '<#ffb3b3>② <b><sc>Point 2 here</sc></b></#ffb3b3>'
+    vert: '<#ffb3b3>↕ <b><sc>Expand vertical</sc></b></#ffb3b3>'
+    show: '<#ff5c5c>👁 <b><sc>Show</sc></b></#ff5c5c>'
+    clear: '<#ff5c5c>✖ <b><sc>Clear</sc></b></#ff5c5c>'
+  prefs:
+    title: '<gradient:#8b0000:#ff5c5c><b>⚙ <sc>Settings</sc></b></gradient>'
+    body: '<gray><sc>Personal settings for this session.</sc></gray>'
+    bypass: '<gray><sc>Region bypass</sc></gray>'
+    nearby: '<gray><sc>Highlight nearby regions</sc></gray>'
+  admin:
+    title: '<gradient:#8b0000:#ff5c5c><b>🛠 <sc>Admin</sc></b></gradient>'
+    body: '<gray><sc>Regions</sc></gray> <white><regions></white> <dark_gray>·</dark_gray> <gray><sc>Flags</sc></gray> <white><flags></white> <dark_gray>(<generated> <sc>generated</sc>)</dark_gray><newline><gray><sc>WorldGuard data found:</sc></gray> <white><wg></white>'
+    reload: '<#ffb3b3>↻ <b><sc>Reload</sc></b></#ffb3b3>'
+    save: '<#ffb3b3>💾 <b><sc>Save all</sc></b></#ffb3b3>'
+    backup: '<#ffb3b3>🗄 <b><sc>Backup now</sc></b></#ffb3b3>'
+    benchmark: '<#ffb3b3>⚡ <b><sc>Benchmark</sc></b></#ffb3b3>'
+    stats: '<#ffb3b3>📊 <b><sc>Stats</sc></b></#ffb3b3>'
+    import: '<#ffcf5c>⇩ <b><sc>Import WorldGuard</sc></b></#ffcf5c>'
+    cleanup: '<#ff5c5c>🗑 <b><sc>Remove WorldGuard jars</sc></b></#ff5c5c>'
+    global: '<#ffb3b3>🌍 <b><sc>Global region</sc></b></#ffb3b3>'
+  prompt:
+    cancelled: '<prefix><gray><sc>Cancelled.</sc></gray>'
+    create: '<prefix><#ffb3b3>✎</#ffb3b3> <gray><sc>Type the new region id in chat (or</sc></gray> <white>cancel</white><gray>).</gray>'
+    members: '<prefix><#ffb3b3>✎</#ffb3b3> <gray><sc>Type</sc></gray> <white>add <players></white> <gray><sc>or</sc></gray> <white>remove <players></white> <gray><sc>for members of</sc></gray> <#ff5c5c><id></#ff5c5c>'
+    owners: '<prefix><#ffb3b3>✎</#ffb3b3> <gray><sc>Type</sc></gray> <white>add <players></white> <gray><sc>or</sc></gray> <white>remove <players></white> <gray><sc>for owners of</sc></gray> <#ff5c5c><id></#ff5c5c>'
+    priority: '<prefix><#ffb3b3>✎</#ffb3b3> <gray><sc>Type the new priority for</sc></gray> <#ff5c5c><id></#ff5c5c>'
+    flag: '<prefix><#ffb3b3>✎</#ffb3b3> <gray><sc>Type a value for</sc></gray> <#ffb3b3><flag></#ffb3b3> <dark_gray>(<type>)</dark_gray> <gray><sc>or</sc></gray> <white>unset</white>'

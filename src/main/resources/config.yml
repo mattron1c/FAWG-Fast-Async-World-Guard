@@ -1,0 +1,214 @@
+# ━━━━━━━━━━━━ ✦ ━━━━━━━━━━━━
+#  FastAsyncWorldGuard · config.yml
+#  Docs: https://github.com/mattron1c/FAWG-Fast-Async-World-Guard/wiki
+# ━━━━━━━━━━━━ ✦ ━━━━━━━━━━━━
+
+style:
+  # Shown in front of chat messages. <sc>…</sc> converts letters to small caps.
+  prefix: '<gradient:#8b0000:#ff5555><b><sc>FAWG</sc></b></gradient> <dark_gray>»</dark_gray> '
+  divider:
+    dash: '━'
+    length: 12
+    star: '✦'
+    outer-color: '#5a0000'   # dark red at the outside ends
+    inner-color: '#ff5c5c'   # light red next to the star
+    star-color: '#ffb3b3'
+  # Some small caps glyphs are missing from the Bedrock font. false = Bedrock players get normal letters.
+  bedrock-small-caps: false
+
+gui:
+  # auto = native dialog HUD for Java players, chest GUI for Bedrock (Geyser) players
+  # dialog / chest = force one style for everybody
+  mode: auto
+  columns: 2
+  button-width: 150
+  page-size: 16
+
+commands:
+  # Running /rg with no arguments opens the HUD.
+  bare-command-opens-menu: true
+
+bypass:
+  # Players with fawg.bypass ignore protection while their bypass is on (toggle with /rg bypass).
+  enabled-by-default: true
+
+flags:
+  # false (default): specific flags override general ones (interact-doors allow beats interact deny).
+  # true: exact WorldGuard behaviour — every DENY in the flag chain wins.
+  worldguard-strict-deny: false
+  # Flags nobody may set (eg. [game-mode, fly-speed])
+  disabled: []
+
+protection:
+  # actionbar or chat
+  deny-message-mode: actionbar
+  deny-message-cooldown-ms: 1500
+  deny-sound: true
+  # Also apply spawn flags to mobs spawned by plugins / commands
+  block-plugin-spawns: false
+
+anti-ghost:
+  # Puts survival players who cannot build where they stand into adventure mode, so their client never
+  # predicts (and flashes) a block they are not allowed to place or break. Works for Java and Bedrock.
+  # Per region override: /rg flag <id> anti-ghost-blocks false
+  prediction-lock: true
+  lock-by-default: true
+  # Re-sends the correct blocks + inventory after every denied action, again after the player's ping.
+  resync: true
+  max-resync-delay-ticks: 20
+
+regions:
+  default-priority: 0
+  auto-expand-vertical: false
+
+selection:
+  wand-item: blaze_rod
+  # true = /rg define prefers the WorldEdit selection when both exist
+  prefer-worldedit: false
+
+claims:
+  max-regions-per-player: 5     # fawg.claim.limit.<n> overrides, fawg.claim.unlimited removes the limit
+  max-volume: 2000000
+  deny-overlap-unowned: true
+  only-inside-existing: false
+  auto-expand-vertical: true
+  default-priority: 0
+  default-flags: {}
+
+visualizer:
+  region-color: '#ff2a2a'
+  selection-color: '#ff8080'
+  nearby-color: '#b30000'
+  particle-size: 1.1
+  interval-ticks: 10
+  range: 48
+  max-particles: 700
+  show-on-info: true
+  info-seconds: 8
+  select-seconds: 30
+  show-seconds: 60
+
+worldedit:
+  # Players need build rights in a region to WorldEdit there (bypass: fawg.worldedit.bypass)
+  require-build: true
+  # Register FAWE's native mask manager (players may edit inside regions they own)
+  fawe-mask-manager: true
+  # Commands whose selection is checked against protected / locked regions (RegionProtect style)
+  guarded-commands: ['//set', '//replace', '//overlay', '//walls', '//outline', '//faces', '//deform', '//fill', '//fillr', '//fixlava', '//fixwater', '//hollow',
+                     '//move', '//stack', '//smooth', '//cut', '//replacenear', '//naturalize', '//regen', '//line', '//curve', '//center', '//paste', '//place',
+                     '//drain', '//green', '//snow', '//thaw', '//ex', '//butcher', '//set', '//sel', '//generate', '//gen', '//forest', '//flora', '//rep']
+  # Commands that use a radius around the player instead of the selection
+  radius-commands: ['//cyl', '//hcyl', '//sphere', '//hsphere', '//pyramid', '//hpyramid', '//drain', '//fixlava', '//fixwater', '//removenear', '//replacenear', '//snow', '//thaw', '//green', '//ex', '//extinguish', '//butcher', '//up', '/up']
+
+spy:
+  all-denials: false
+  worldedit: true
+  sound: block.anvil.place
+
+features:
+  hide-players: true
+
+performance:
+  # Regions covering more chunks than this are tested by bounds instead of being indexed per chunk.
+  large-region-chunks: 4096
+  # Set to false if you never use the 'redstone' flag (skips a lookup per redstone update).
+  redstone-flag: true
+  max-forced-chunks-per-world: 2048
+
+storage:
+  autosave-seconds: 60
+
+backups:
+  daily: true
+  keep: 20
+
+logging:
+  actions: true
+
+update-checker:
+  enabled: true
+  modrinth-project: fawg
+
+placeholders:
+  wilderness: 'Wilderness'
+
+# Ready made flag bundles: /rg preset <id> <preset>
+presets:
+  spawn:
+    build: deny
+    pvp: deny
+    mob-spawning: deny
+    mob-damage: deny
+    invincible: allow
+    hunger: deny
+    fall-damage: deny
+    tnt: deny
+    creeper-explosion: deny
+    other-explosion: deny
+    fire-spread: deny
+    lava-fire: deny
+    leaf-decay: deny
+    item-frame-rotation: deny
+    entry-deny-message: '<red>Spawn is closed right now.'
+  safezone:
+    pvp: deny
+    mob-damage: deny
+    mob-target-players: deny
+    invincible: allow
+  arena:
+    pvp: allow
+    build: deny
+    keep-inventory: 'true'
+    keep-exp: 'true'
+    item-drop: deny
+    mob-spawning: deny
+    hunger: deny
+  shop:
+    build: deny
+    pvp: deny
+    mob-spawning: deny
+    villager-trade: allow
+    chest-access: deny
+  farm:
+    block-trampling: deny
+    crop-growth: allow
+    mob-spawning: deny
+    pvp: deny
+  lobby:
+    build: deny
+    pvp: deny
+    hunger: deny
+    invincible: allow
+    item-drop: deny
+    item-pickup: deny
+    mob-spawning: deny
+    weather-lock: clear
+    time-lock: '6000'
+    fall-damage: deny
+    fly: allow
+  protected:
+    build: deny
+    interact: deny
+    chest-access: deny
+    use: deny
+    vehicle-place: deny
+    vehicle-destroy: deny
+    lighter: deny
+  frozen-nature:
+    leaf-decay: deny
+    grass-growth: deny
+    mycelium-spread: deny
+    vine-growth: deny
+    ice-form: deny
+    ice-melt: deny
+    snow-fall: deny
+    snow-melt: deny
+    coral-fade: deny
+    copper-fade: deny
+    crop-growth: deny
+    soil-dry: deny
+    fire-spread: deny
+  no-mobs:
+    mob-spawning: deny
+    deny-mobspawn: all_hostile
+    mob-target-players: deny

@@ -1,0 +1,139 @@
+name: FastAsyncWorldGuard
+version: '${version}'
+main: dev.mattron1c.fawg.FAWG
+api-version: '1.21'
+prefix: FAWG
+load: STARTUP
+author: mattron1c
+description: Blazing fast, lock-free region protection with 1000+ flags, a dialog HUD, FAWE integration and WorldGuard migration.
+website: https://modrinth.com/plugin/fawg
+softdepend: [WorldEdit, FastAsyncWorldEdit, PlaceholderAPI, floodgate, Geyser-Spigot]
+loadbefore: [WorldGuard]
+
+commands:
+  region:
+    description: FastAsyncWorldGuard region commands
+    usage: /<command> help
+    aliases: [rg, regions, fawgrg]
+  fawg:
+    description: FastAsyncWorldGuard admin commands and HUD
+    usage: /<command> help
+    aliases: [fastasyncworldguard, fawgadmin]
+
+permissions:
+  fawg.*:
+    description: Everything
+    default: op
+    children:
+      fawg.admin: true
+      fawg.region.*: true
+      fawg.bypass: true
+      fawg.lock.bypass: true
+      fawg.worldedit.bypass: true
+      fawg.notify: true
+      fawg.spy: true
+      fawg.claim.unlimited: true
+      fawg.fly.bypass: true
+      fawg.wand: true
+      fawg.flag.*: true
+  fawg.admin:
+    description: Admin commands (/fawg reload, import, backup, benchmark...)
+    default: op
+  fawg.bypass:
+    description: Ignore region protection while bypass is enabled (/rg bypass)
+    default: op
+  fawg.lock.bypass:
+    description: Modify and build in regions locked with /rg lock
+    default: false
+  fawg.worldedit.bypass:
+    description: Use WorldEdit / FAWE in protected regions
+    default: op
+  fawg.notify:
+    description: Receive notify-enter / notify-leave alerts
+    default: op
+  fawg.spy:
+    description: Receive denied action / WorldEdit alerts from admin-spy regions
+    default: op
+  fawg.claim.unlimited:
+    description: No claim limits
+    default: op
+  fawg.fly.bypass:
+    description: Not affected by fly deny
+    default: op
+  fawg.wand:
+    description: Use the FAWG selection wand
+    default: op
+  fawg.flag.*:
+    description: Set every flag (only checked when fawg.flag.restrict is given)
+    default: op
+  fawg.region.*:
+    description: All region commands on every region
+    default: op
+    children:
+      fawg.region.define: true
+      fawg.region.redefine: true
+      fawg.region.claim: true
+      fawg.region.select: true
+      fawg.region.info: true
+      fawg.region.list: true
+      fawg.region.addowner: true
+      fawg.region.removeowner: true
+      fawg.region.addmember: true
+      fawg.region.removemember: true
+      fawg.region.flag: true
+      fawg.region.setpriority: true
+      fawg.region.setparent: true
+      fawg.region.remove: true
+      fawg.region.teleport: true
+      fawg.region.teleport.center: true
+      fawg.region.bypass: true
+      fawg.region.load: true
+      fawg.region.save: true
+      fawg.region.migrate: true
+      fawg.region.wand: true
+      fawg.region.visualize: true
+      fawg.region.rename: true
+      fawg.region.lock: true
+      fawg.region.menu: true
+  fawg.region.info:
+    default: true
+  fawg.region.visualize:
+    default: true
+  fawg.region.menu:
+    default: true
+  fawg.region.select.own:
+    default: true
+  fawg.region.info.own:
+    default: true
+  fawg.region.flag.own:
+    default: false
+  fawg.region.addmember.own:
+    default: false
+  fawg.region.removemember.own:
+    default: false
+  fawg.region.teleport.own:
+    default: false
+  fawg.region.claim:
+    default: false
+  fawg.player:
+    description: Recommended kit for normal players who may claim and manage their own land
+    default: false
+    children:
+      fawg.region.claim: true
+      fawg.region.wand: true
+      fawg.wand: true
+      fawg.region.info: true
+      fawg.region.select.own: true
+      fawg.region.flag.own: true
+      fawg.region.addmember.own: true
+      fawg.region.removemember.own: true
+      fawg.region.addowner.own: true
+      fawg.region.removeowner.own: true
+      fawg.region.teleport.own: true
+      fawg.region.remove.own: true
+      fawg.region.redefine.own: true
+      fawg.region.setpriority.own: true
+      fawg.region.rename.own: true
+      fawg.region.menu: true
+      fawg.region.visualize: true
+      fawg.region.list.own: true
