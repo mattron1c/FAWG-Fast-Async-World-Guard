@@ -73,8 +73,9 @@ send "stop" 30
 wait "$PID" 2>/dev/null || true
 
 if [ -f plugins/FastAsyncWorldGuard/FLAGS.md ]; then echo "=====FLAGS.MD BEGIN====="; cat plugins/FastAsyncWorldGuard/FLAGS.md; echo "=====FLAGS.MD END====="; fi
-echo "================ FAWG log lines ================"
-grep -n -iE "fastasyncworldguard|fawg|regions|benchmark|ns per|faster|import|flags" server.log | head -250
+echo "================ server log (after startup) ================"
+grep -n -iE "fastasyncworldguard|\[FAWG\]|WorldEdit|FastAsyncWorldEdit|Geyser" server.log | head -40
+sed -n '/Done (/,$p' server.log | grep -vE "^\s*$" | head -700
 FAIL=0
 grep -q "Enabling FastAsyncWorldGuard" server.log || { echo "::error::FAWG never enabled"; FAIL=1; }
 if grep -q "Error occurred while enabling FastAsyncWorldGuard" server.log; then echo "::error::FAWG failed to enable"; FAIL=1; fi

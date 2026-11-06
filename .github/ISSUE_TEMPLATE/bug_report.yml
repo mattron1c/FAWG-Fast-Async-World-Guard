@@ -1,0 +1,46 @@
+name: 🐞 Bug report
+description: Something does not work as expected
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: "━━━━━━ ✦ ━━━━━━  Thanks for helping make FAWG better! Please fill in everything below."
+  - type: input
+    id: version
+    attributes: { label: FAWG version, description: "/fawg version", placeholder: "1.0.0" }
+    validations: { required: true }
+  - type: input
+    id: server
+    attributes: { label: Server software + version, placeholder: "Paper 1.21.8 build 60" }
+    validations: { required: true }
+  - type: dropdown
+    id: editor
+    attributes:
+      label: WorldEdit
+      options: [None, WorldEdit, FastAsyncWorldEdit]
+    validations: { required: true }
+  - type: dropdown
+    id: client
+    attributes:
+      label: Affected clients
+      multiple: true
+      options: [Java, Bedrock (Geyser)]
+  - type: textarea
+    id: what
+    attributes: { label: What happened?, description: "Steps to reproduce, expected vs actual behaviour." }
+    validations: { required: true }
+  - type: textarea
+    id: flags
+    attributes: { label: Region / flags, description: "Output of /rg info <region> and /fawg test <flag> <player> if relevant.", render: text }
+  - type: textarea
+    id: log
+    attributes: { label: Errors / logs, description: "Paste stack traces from logs/latest.log", render: text }
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I am on the latest FAWG version
+          required: true
+        - label: I searched existing issues
+          required: true

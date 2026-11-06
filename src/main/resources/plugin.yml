@@ -3,7 +3,6 @@ version: '${version}'
 main: dev.mattron1c.fawg.FAWG
 api-version: '1.21'
 prefix: FAWG
-load: STARTUP
 author: mattron1c
 description: Blazing fast, lock-free region protection with 1000+ flags, a dialog HUD, FAWE integration and WorldGuard migration.
 website: https://modrinth.com/plugin/fawg

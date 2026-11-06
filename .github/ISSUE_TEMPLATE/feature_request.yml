@@ -1,0 +1,16 @@
+name: ✨ Feature / flag request
+description: Suggest a feature, flag or HUD improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes: { label: What would you like?, description: "Describe the feature or flag. For flags: name, what it blocks, default value." }
+    validations: { required: true }
+  - type: textarea
+    id: why
+    attributes: { label: Why is it useful?, description: "What problem does it solve on your server?" }
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [Flags, HUD / GUI, Commands, WorldEdit / FAWE, Performance, Migration, API, Other]

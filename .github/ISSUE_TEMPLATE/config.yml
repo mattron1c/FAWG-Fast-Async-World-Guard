@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Questions & help
+    url: https://github.com/mattron1c/FAWG-Fast-Async-World-Guard/discussions
+    about: Ask setup and usage questions in Discussions.
