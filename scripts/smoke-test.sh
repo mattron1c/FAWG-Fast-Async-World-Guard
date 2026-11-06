@@ -36,11 +36,14 @@ case "$MODE" in
 esac
 
 coproc SRV { timeout 600 java -Xms1G -Xmx3G -jar paper.jar --nogui > server.log 2>&1; }
+PID=$SRV_PID
+IN=${SRV[1]}
 for i in $(seq 1 300); do grep -q 'Done (' server.log 2>/dev/null && break; sleep 1; done
 grep -q 'Done (' server.log || { echo "::error::server did not start"; tail -80 server.log; exit 1; }
-send() { echo "$1" >&"${SRV[1]}"; sleep "${2:-2}"; }
+send() { echo "$1" >&"$IN" 2>/dev/null || true; sleep "${2:-2}"; }
 
 send "fawg version"
+send "fawg dumpflags" 3
 send "fawg stats"
 send "fawg flags"
 send "fawg flags entities"
@@ -67,8 +70,9 @@ send "fawg backup list" 2
 send "fawg reload" 8
 send "rg save" 4
 send "stop" 30
-wait "$SRV_PID" 2>/dev/null
+wait "$PID" 2>/dev/null || true
 
+if [ -f plugins/FastAsyncWorldGuard/FLAGS.md ]; then echo "=====FLAGS.MD BEGIN====="; cat plugins/FastAsyncWorldGuard/FLAGS.md; echo "=====FLAGS.MD END====="; fi
 echo "================ FAWG log lines ================"
 grep -n -iE "fastasyncworldguard|fawg|regions|benchmark|ns per|faster|import|flags" server.log | head -250
 FAIL=0
