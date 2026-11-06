@@ -3,6 +3,8 @@ name: Release
 on:
   push:
     tags: ["v*"]
+    branches: [main]
+    paths: ["gradle.properties", "CHANGELOG.md", ".github/workflows/release.yml"]
   workflow_dispatch:
     inputs:
       version:
@@ -29,30 +31,40 @@ jobs:
         id: v
         run: |
           V="${{ github.event.inputs.version }}"
-          [ -z "$V" ] && V="${GITHUB_REF_NAME#v}"
+          if [ -z "$V" ] && [ "${GITHUB_REF_TYPE}" = "tag" ]; then V="${GITHUB_REF_NAME#v}"; fi
+          [ -z "$V" ] && V=$(grep '^version=' gradle.properties | cut -d= -f2)
           echo "version=$V" >> "$GITHUB_OUTPUT"
+          if gh release view "v$V" >/dev/null 2>&1; then echo "exists=true" >> "$GITHUB_OUTPUT"; else echo "exists=false" >> "$GITHUB_OUTPUT"; fi
+        env:
+          GH_TOKEN: ${{ github.token }}
       - name: Build
+        if: steps.v.outputs.exists != 'true'
         run: ./gradlew build -Pversion=${{ steps.v.outputs.version }}
       - name: Extract changelog
+        if: steps.v.outputs.exists != 'true'
         run: |
           awk -v v="## [${{ steps.v.outputs.version }}]" 'index($0, v)==1 {p=1; next} /^## \[/ {p=0} p' CHANGELOG.md > RELEASE_NOTES.md
           [ -s RELEASE_NOTES.md ] || echo "See CHANGELOG.md" > RELEASE_NOTES.md
       - name: Checksums
+        if: steps.v.outputs.exists != 'true'
         run: |
           cd build/libs && sha256sum *.jar > SHA256SUMS.txt && cat SHA256SUMS.txt
           printf '\n\n### ✦ Install\nDrop the jar into `plugins/` (Paper 1.21.8 – 26.3, Java 21+, Java 25 on 26.x) and restart.\nComing from WorldGuard? `/fawg import worldguard` → `/fawg cleanup confirm`.\n' >> "$GITHUB_WORKSPACE/RELEASE_NOTES.md"
       - name: GitHub release
+        if: steps.v.outputs.exists != 'true'
         uses: softprops/action-gh-release@v2
         with:
           name: FastAsyncWorldGuard ${{ steps.v.outputs.version }}
           tag_name: v${{ steps.v.outputs.version }}
+          target_commitish: ${{ github.sha }}
+          make_latest: true
           body_path: RELEASE_NOTES.md
           files: |
             build/libs/*.jar
             build/libs/SHA256SUMS.txt
           generate_release_notes: true
       - name: Publish to Modrinth
-        if: env.MODRINTH_TOKEN != '' && env.MODRINTH_PROJECT_ID != ''
+        if: steps.v.outputs.exists != 'true' && env.MODRINTH_TOKEN != '' && env.MODRINTH_PROJECT_ID != ''
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           modrinth-id: ${{ env.MODRINTH_PROJECT_ID }}
