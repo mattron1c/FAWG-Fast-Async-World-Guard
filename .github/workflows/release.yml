@@ -37,13 +37,20 @@ jobs:
         run: |
           awk -v v="## [${{ steps.v.outputs.version }}]" 'index($0, v)==1 {p=1; next} /^## \[/ {p=0} p' CHANGELOG.md > RELEASE_NOTES.md
           [ -s RELEASE_NOTES.md ] || echo "See CHANGELOG.md" > RELEASE_NOTES.md
+      - name: Checksums
+        run: |
+          cd build/libs && sha256sum *.jar > SHA256SUMS.txt && cat SHA256SUMS.txt
+          printf '\n\n### ✦ Install\nDrop the jar into `plugins/` (Paper 1.21.8 – 26.3, Java 21+, Java 25 on 26.x) and restart.\nComing from WorldGuard? `/fawg import worldguard` → `/fawg cleanup confirm`.\n' >> "$GITHUB_WORKSPACE/RELEASE_NOTES.md"
       - name: GitHub release
         uses: softprops/action-gh-release@v2
         with:
           name: FastAsyncWorldGuard ${{ steps.v.outputs.version }}
           tag_name: v${{ steps.v.outputs.version }}
           body_path: RELEASE_NOTES.md
-          files: build/libs/*.jar
+          files: |
+            build/libs/*.jar
+            build/libs/SHA256SUMS.txt
+          generate_release_notes: true
       - name: Publish to Modrinth
         if: env.MODRINTH_TOKEN != '' && env.MODRINTH_PROJECT_ID != ''
         uses: Kir-Antipov/mc-publish@v3.3

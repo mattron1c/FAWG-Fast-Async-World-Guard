@@ -1,15 +1,25 @@
 <div align="center">
 
-# ━━━━━━ ✦ ꜰᴀꜱᴛᴀꜱʏɴᴄᴡᴏʀʟᴅɢᴜᴀʀᴅ ✦ ━━━━━━
+<img src="assets/banner.svg" alt="FastAsyncWorldGuard" width="100%">
 
 **Lock-free, chunk-indexed region protection for Paper — built for FAWE, Geyser and big servers.**
 
-[![Build](https://github.com/mattron1c/FAWG-Fast-Async-World-Guard/actions/workflows/build.yml/badge.svg)](https://github.com/mattron1c/FAWG-Fast-Async-World-Guard/actions/workflows/build.yml)
+[![Build](https://img.shields.io/github/actions/workflow/status/mattron1c/FAWG-Fast-Async-World-Guard/build.yml?branch=main&style=for-the-badge&label=build&color=ff5c5c)](https://github.com/mattron1c/FAWG-Fast-Async-World-Guard/actions/workflows/build.yml)
+[![Release](https://img.shields.io/github/v/release/mattron1c/FAWG-Fast-Async-World-Guard?style=for-the-badge&color=8b0000)](https://github.com/mattron1c/FAWG-Fast-Async-World-Guard/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/mattron1c/FAWG-Fast-Async-World-Guard/total?style=for-the-badge&color=ff5c5c)](https://github.com/mattron1c/FAWG-Fast-Async-World-Guard/releases)
+<br>
 ![Paper](https://img.shields.io/badge/Paper-1.21.8%20→%2026.3-ff5c5c?style=flat-square)
 ![Java](https://img.shields.io/badge/Java-21%2B-8b0000?style=flat-square)
-![Flags](https://img.shields.io/badge/flags-1000%2B-ff5c5c?style=flat-square)
-![Bedrock](https://img.shields.io/badge/Geyser-supported-8b0000?style=flat-square)
+![Flags](https://img.shields.io/badge/flags-1400%2B-ff5c5c?style=flat-square)
+![FAWE](https://img.shields.io/badge/FAWE-native-8b0000?style=flat-square)
+![Bedrock](https://img.shields.io/badge/Geyser-supported-ff5c5c?style=flat-square)
 [![License](https://img.shields.io/badge/license-FAWG--SAL%201.0-555?style=flat-square)](LICENSE)
+
+**[⬇ Download](https://github.com/mattron1c/FAWG-Fast-Async-World-Guard/releases/latest)** ·
+**[📖 Docs](docs/README.md)** ·
+**[⚑ Flag list](docs/FLAGS.md)** ·
+**[⇩ Migrate from WorldGuard](docs/MIGRATION.md)** ·
+**[💬 Discussions](https://github.com/mattron1c/FAWG-Fast-Async-World-Guard/discussions)**
 
 </div>
 
@@ -19,7 +29,7 @@ commands, flag names and region format, but is rebuilt for speed and flexibility
 - ⚡ **Faster lookups.** A chunk-bucketed spatial index with lock-free reads, allocation-free flag
   resolution, and sparse flag storage. Run `/fawg benchmark` to measure it against WorldGuard on your own regions.
 - 🧱 **No ghost blocks.** Denied placing/breaking never flashes client-side, even on high ping or Bedrock.
-- ⚑ **1,000+ flags.** All WorldGuard flags, all ExtraFlagsPlus flags, RegionProtect locks, plus ~900
+- ⚑ **1,400+ flags.** All WorldGuard flags, all ExtraFlagsPlus flags, RegionProtect locks, plus ~900
   fine-grained flags generated from the server's own mob / block / item / effect lists.
 - 🪟 **Dialog HUD.** Manage everything from Minecraft's native dialog screens. Bedrock players automatically get a chest GUI.
 - 🔴 **Red outlines.** Selections and regions are highlighted with red particles that only draw near
@@ -38,6 +48,14 @@ commands, flag names and region format, but is rebuilt for speed and flexibility
 - [Commands](#-commands) · [Permissions](#-permissions) · [Flags](#-flags) · [Selections](#-selections--visualizer)
 - [Anti ghost blocks](#-anti-ghost-blocks) · [WorldEdit / FAWE](#-worldedit--fawe) · [Performance](#-performance)
 - [Configuration](#-configuration) · [Developer API](#-developer-api) · [Building](#-building) · [License](#-license)
+
+## ✦ Quick start
+```text
+1. Put FastAsyncWorldGuard.jar in plugins/ and restart
+2. /rg wand                      ← left / right click two corners
+3. /rg define spawn              ← create the region
+4. /rg flag spawn pvp deny       ← or just type /rg and use the HUD
+```
 
 ## ✦ Install
 1. Paper **1.21.8 – 26.3** (Java 21+; Paper 26.x needs Java 25).
@@ -120,7 +138,7 @@ All WorldGuard `/rg` sub-commands work with the same names and aliases, and ever
 | `group.<name>` | — | Membership through `g:<name>` (works with LuckPerms) |
 
 ## ✦ Flags
-There are **1,000+ flags**; see [`docs/FLAGS.md`](docs/FLAGS.md) for the full list. Families include:
+There are **1,400+ flags**; see [`docs/FLAGS.md`](docs/FLAGS.md) for the full list. Families include:
 
 | Family | Example | Count* |
 |---|---|---|

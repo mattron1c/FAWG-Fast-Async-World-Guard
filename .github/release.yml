@@ -1,0 +1,14 @@
+changelog:
+  exclude:
+    labels: [ignore-for-release]
+  categories:
+    - title: ✨ New features & flags
+      labels: [enhancement, flags]
+    - title: 🐞 Fixes
+      labels: [bug]
+    - title: ⚡ Performance
+      labels: [performance]
+    - title: 📖 Docs
+      labels: [documentation]
+    - title: 🔧 Other changes
+      labels: ["*"]

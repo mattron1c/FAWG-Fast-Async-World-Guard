@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#140000"/><stop offset="1" stop-color="#2a0505"/>
+    </linearGradient>
+    <linearGradient id="left" x1="0" x2="1"><stop offset="0" stop-color="#5a0000"/><stop offset="1" stop-color="#ff5c5c"/></linearGradient>
+    <linearGradient id="right" x1="0" x2="1"><stop offset="0" stop-color="#ff5c5c"/><stop offset="1" stop-color="#5a0000"/></linearGradient>
+    <linearGradient id="title" x1="0" x2="1"><stop offset="0" stop-color="#b30000"/><stop offset="1" stop-color="#ff7070"/></linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ff5c5c" stop-opacity="0.35"/><stop offset="1" stop-color="#ff5c5c" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="300" rx="24" fill="url(#bg)"/>
+  <g stroke="#ff5c5c" stroke-opacity="0.06">
+    <path d="M0 60H1200M0 120H1200M0 180H1200M0 240H1200M120 0V300M240 0V300M360 0V300M480 0V300M600 0V300M720 0V300M840 0V300M960 0V300M1080 0V300"/>
+  </g>
+  <text x="600" y="128" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="4" fill="url(#title)">ꜰᴀꜱᴛᴀꜱʏɴᴄᴡᴏʀʟᴅɢᴜᴀʀᴅ</text>
+  <rect x="150" y="173" width="400" height="8" rx="4" fill="url(#left)"/>
+  <rect x="650" y="173" width="400" height="8" rx="4" fill="url(#right)"/>
+  <circle cx="600" cy="177" r="46" fill="url(#glow)"/>
+  <path d="M600 147 L608 169 L630 177 L608 185 L600 207 L592 185 L570 177 L592 169 Z" fill="#ffb3b3"/>
+  <text x="600" y="252" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e6b3b3" letter-spacing="2">ʟᴏᴄᴋ-ꜰʀᴇᴇ ʀᴇɢɪᴏɴ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ · 1400+ ꜰʟᴀɢꜱ · ᴅɪᴀʟᴏɢ ʜᴜᴅ · ꜰᴀᴡᴇ · ɢᴇʏꜱᴇʀ</text>
+</svg>

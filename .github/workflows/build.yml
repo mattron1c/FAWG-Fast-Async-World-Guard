@@ -66,6 +66,7 @@ jobs:
   smoke:
     name: Live server · ${{ matrix.mc }} · ${{ matrix.mode }}
     needs: build
+    if: github.ref == 'refs/heads/main' || github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
