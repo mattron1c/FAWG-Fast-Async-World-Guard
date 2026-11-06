@@ -12,7 +12,7 @@ jobs:
       - name: Probe
         run: |
           set -x
-          mkdir -p out
+          mkdir -p out; rm -f out/errors.txt
           R=https://repo.papermc.io/repository/maven-public
           curl -sf $R/io/papermc/paper/paper-api/maven-metadata.xml > out/paper-api-metadata.xml || true
           curl -sf https://fill.papermc.io/v3/projects/paper > out/fill-paper.json || true
@@ -21,9 +21,9 @@ jobs:
           echo "$LATEST26" > out/latest26.txt
           for V in 1.21.8-R0.1-SNAPSHOT "$LATEST26"; do
             [ -z "$V" ] && continue
-            mvn -q dependency:copy -Dartifact=io.papermc.paper:paper-api:$V -DoutputDirectory=jars/$V -DremoteRepositories=papermc::default::$R/ || echo "FAILED $V" >> out/errors.txt
-            mvn -q dependency:get -Dartifact=io.papermc.paper:paper-api:$V -DremoteRepositories=papermc::default::$R/ -Dtransitive=true || true
-            J=$(ls jars/$V/*.jar | head -1)
+            mvn -B dependency:get -Dartifact=io.papermc.paper:paper-api:$V -DremoteRepositories=$R/ -Dtransitive=true > out/mvn-$V.log 2>&1 || echo "FAILED $V" >> out/errors.txt
+            J=$(find ~/.m2/repository/io/papermc/paper/paper-api -name "paper-api-*.jar" -path "*$V*" | grep -v sources | head -1)
+            echo "JAR $V = $J" >> out/errors.txt
             D=out/$V; mkdir -p $D
             unzip -l $J | awk '{print $4}' | grep '\.class$' | sort > $D/classes.txt
             CP=$(find ~/.m2/repository -name '*.jar' | tr '\n' ':')
