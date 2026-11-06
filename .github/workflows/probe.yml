@@ -1,0 +1,40 @@
+name: api-probe
+on: push
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: '21' }
+      - name: Probe
+        run: |
+          set -x
+          mkdir -p out
+          R=https://repo.papermc.io/repository/maven-public
+          curl -sf $R/io/papermc/paper/paper-api/maven-metadata.xml > out/paper-api-metadata.xml || true
+          curl -sf https://fill.papermc.io/v3/projects/paper > out/fill-paper.json || true
+          grep -oE '<version>[^<]+' out/paper-api-metadata.xml | sed 's/<version>//' > out/versions.txt
+          LATEST26=$(grep -E '^26\.' out/versions.txt | sort -V | tail -1)
+          echo "$LATEST26" > out/latest26.txt
+          for V in 1.21.8-R0.1-SNAPSHOT "$LATEST26"; do
+            [ -z "$V" ] && continue
+            mvn -q dependency:copy -Dartifact=io.papermc.paper:paper-api:$V -DoutputDirectory=jars/$V -DremoteRepositories=papermc::default::$R/ || echo "FAILED $V" >> out/errors.txt
+            mvn -q dependency:get -Dartifact=io.papermc.paper:paper-api:$V -DremoteRepositories=papermc::default::$R/ -Dtransitive=true || true
+            J=$(ls jars/$V/*.jar | head -1)
+            D=out/$V; mkdir -p $D
+            unzip -l $J | awk '{print $4}' | grep '\.class$' | sort > $D/classes.txt
+            CP=$(find ~/.m2/repository -name '*.jar' | tr '\n' ':')
+            for C in io.papermc.paper.dialog.Dialog io.papermc.paper.registry.data.dialog.DialogBase 'io.papermc.paper.registry.data.dialog.DialogBase$Builder' 'io.papermc.paper.registry.data.dialog.DialogBase$DialogAfterAction' io.papermc.paper.registry.data.dialog.ActionButton 'io.papermc.paper.registry.data.dialog.ActionButton$Builder' io.papermc.paper.registry.data.dialog.type.DialogType 'io.papermc.paper.registry.data.dialog.type.MultiActionType' 'io.papermc.paper.registry.data.dialog.type.MultiActionType$Builder' 'io.papermc.paper.registry.data.dialog.type.NoticeType' 'io.papermc.paper.registry.data.dialog.type.ConfirmationType' io.papermc.paper.registry.data.dialog.action.DialogAction io.papermc.paper.registry.data.dialog.action.DialogActionCallback io.papermc.paper.registry.data.dialog.input.DialogInput 'io.papermc.paper.registry.data.dialog.input.TextDialogInput$Builder' 'io.papermc.paper.registry.data.dialog.input.TextDialogInput$MultilineOptions' 'io.papermc.paper.registry.data.dialog.input.NumberRangeDialogInput$Builder' 'io.papermc.paper.registry.data.dialog.input.BooleanDialogInput$Builder' 'io.papermc.paper.registry.data.dialog.input.SingleOptionDialogInput' 'io.papermc.paper.registry.data.dialog.input.SingleOptionDialogInput$OptionEntry' 'io.papermc.paper.registry.data.dialog.input.SingleOptionDialogInput$Builder' io.papermc.paper.registry.data.dialog.body.DialogBody 'io.papermc.paper.registry.data.dialog.body.PlainMessageDialogBody' io.papermc.paper.dialog.DialogResponseView io.papermc.paper.registry.data.dialog.DialogRegistryEntry 'io.papermc.paper.registry.data.dialog.DialogRegistryEntry$Builder' io.papermc.paper.command.brigadier.BasicCommand io.papermc.paper.command.brigadier.Commands io.papermc.paper.command.brigadier.CommandSourceStack io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents net.kyori.adventure.audience.Audience net.kyori.adventure.text.event.ClickCallback 'net.kyori.adventure.text.event.ClickCallback$Options' 'net.kyori.adventure.text.event.ClickCallback$Options$Builder' org.bukkit.Material org.bukkit.entity.EntityType 'org.bukkit.event.entity.EntityDamageEvent$DamageCause' 'org.bukkit.event.entity.CreatureSpawnEvent$SpawnReason' org.bukkit.Particle 'org.bukkit.Particle$DustOptions' org.bukkit.attribute.Attribute org.bukkit.potion.PotionEffectType org.bukkit.entity.Player org.bukkit.entity.BlockDisplay org.bukkit.entity.Display org.bukkit.inventory.ItemStack org.bukkit.Registry org.bukkit.Tag org.bukkit.GameRule 'org.bukkit.event.block.BlockIgniteEvent$IgniteCause' 'org.bukkit.event.player.PlayerTeleportEvent$TeleportCause' 'org.bukkit.event.entity.EntityPotionEffectEvent$Cause' org.bukkit.event.player.PlayerInteractEvent io.papermc.paper.event.player.AsyncChatEvent org.bukkit.Sound org.bukkit.block.Block org.bukkit.World org.bukkit.inventory.InventoryView org.bukkit.event.inventory.InventoryType org.bukkit.entity.Entity org.bukkit.event.entity.EntityExplodeEvent org.bukkit.boss.BossBar net.kyori.adventure.bossbar.BossBar org.bukkit.plugin.java.JavaPlugin io.papermc.paper.event.player.PlayerCustomClickEvent io.papermc.paper.connection.PlayerGameConnection io.papermc.paper.datacomponent.DataComponentTypes ; do
+              echo "=== $C" >> $D/javap.txt
+              javap -cp "$J:$CP" "$C" >> $D/javap.txt 2>&1 || true
+            done
+            grep -E '^io/papermc/paper/(dialog|registry/data/dialog|connection|event/player/PlayerCustomClick)' $D/classes.txt > $D/dialog-classes.txt || true
+          done
+          ls -la out out/*
+      - name: Commit results
+        run: |
+          git config user.name probe-bot; git config user.email probe@users.noreply.github.com
+          git add out && git commit -qm "probe results" && git push
